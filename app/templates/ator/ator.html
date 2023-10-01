@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ator</title>
+  <!-- Incluindo Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+  <nav id="nav-container"></nav>
+
+  <div class="container mt-5">
+    <h2 class="mb-4">Atores</h2>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Nome</th>
+              <th scope="col">Site</th>
+              <th scope="col">Insta</th>
+              <th scope="col">Face</th>
+              <th scope="col">Twitter</th>
+              <th scope="col">Nacionalidade</th>
+            </tr>
+            {% for Ator in ator %}
+          </thead>
+          <tbody>
+           <td>{{Ator.nome}}</td>
+           <td>{{Ator.site}}</td>
+           <td>{{Ator.insta}}</td>
+           <td>{{Ator.face}}</td>
+           <td>{{Ator.twitter}}</td>
+           <td>{{Ator.nacionalidade}}</td>
+          </tbody>
+           {% endfor %} 
+        </table>
+    </div>
+
+  <!-- Incluindo jQuery e Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <script>
+    fetch('/nav.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('nav-container').innerHTML = data;
+      });
+  </script>
+</body>
+</html>

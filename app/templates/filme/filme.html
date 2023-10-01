@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Filme</title>
+  <!-- Incluindo Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+  <nav id="nav-container"></nav>
+
+  <div class="container mt-5">
+    <h2 class="mb-4">Filmes</h2>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Nome</th>
+              <th scope="col">Duracao</th>
+              <th scope="col">Sinopse</th>
+              <th scope="col">Site</th>
+              <th scope="col">Data Lançamento</th>
+              <th scope="col">Nota Avaliação</th>
+              <th scope="col">Categoria</th>
+              <th scope="col">Pais</th>
+              <th scope="col">Diretor</th>
+            </tr>
+            {% for Filme in filme %}
+          </thead>
+          <tbody>
+           <td>{{Filme.nome}}</td>
+           <td>{{Filme.duracao}}</td>
+           <td>{{Filme.sinopse}}</td>
+           <td>{{Filme.site}}</td>
+           <td>{{Filme.data_lancamento}}</td>
+           <td>{{Filme.nota_avaliacao}}</td>
+           <td>{{Filme.categoria}}</td>
+           <td>{{Filme.pais}}</td>
+           <td>{{Filme.diretor}}</td>
+          </tbody>
+           {% endfor %} 
+        </table>
+    </div>
+
+  <!-- Incluindo jQuery e Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <script>
+    fetch('/nav.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('nav-container').innerHTML = data;
+      });
+  </script>
+</body>
+</html>
